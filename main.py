@@ -26,7 +26,7 @@ while soldering_done == False:
         print('''BOOM! You choose false cable, a short circuit has occurred and then explosion was happened.
 Now you are part of this planet...''')
         print()
-        soldering_done = True
+        exit()
 
     elif first_choice.lower() == 'purple':
         for i in 'Soldering...':
@@ -36,21 +36,23 @@ Now you are part of this planet...''')
         sleep(0.5)
         print('''You heard the sound of gears somewhere inside the shuttle... 
 It was the right cable, but now you should to solder one more to second black cable to leave that weird planet''')
-        second_choise = input('''\nWhich cable will you choose?\n[RED/GREEN]\n''')
-        if second_choise.lower() == 'green':
-            for i in 'Soldering...':
-                print(i, end='', flush=True)
-                sleep(0.15)
-            print()
-            print('God damn yeah! It starts! Now you should to choose the button, which will start the departure...')
-            soldering_done = True
-        elif second_choise.lower() == 'red':
-            for i in 'Soldering...':
-                print(i, end='', flush=True)
-                sleep(0.15)
-            print()
-            print('Nothing was happened...')
-            soldering_done = True
+        all_cables_done = False
+        while all_cables_done == False:
+            second_choise = input('''\nWhich cable will you choose?\n[RED/GREEN]\n''')
+            if second_choise.lower() == 'green':
+                for i in 'Soldering...':
+                    print(i, end='', flush=True)
+                    sleep(0.15)
+                print()
+                print('God damn yeah! It starts! Now you should to choose the button, which will start the departure...')
+                soldering_done, all_cables_done = True, True
+            elif second_choise.lower() == 'red':
+                for i in 'Soldering...':
+                    print(i, end='', flush=True)
+                    sleep(0.15)
+                print()
+                print('Nothing was happened...')
+
 
 
     elif first_choice.lower() == 'green':
@@ -61,8 +63,7 @@ It was the right cable, but now you should to solder one more to second black ca
         sleep(0.5)
         print('''The shuttle began to vibrate... 
         You heard the countdown and suddenly everything went silent, 
-        there is no light in the shuttle anymore and now you are surrounded by darkness....''')
-        soldering_done = True
+        there is no light in the shuttle anymore and now you are surrounded by darkness....\n''')
 
 
 
